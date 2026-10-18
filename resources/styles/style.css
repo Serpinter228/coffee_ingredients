@@ -90,19 +90,53 @@ body {
 .btn-primary:hover:not(:disabled) { background: var(--green-dark); }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* FEED */
-.feed-page { padding: 0; height: calc(100vh - var(--nav-height)); overflow: hidden; position: relative; }
-.video-container { position: absolute; inset: 0; background: #111; }
-.feed-video { width: 100%; height: 100%; object-fit: cover; }
+.feed-page {
+    padding: 0 !important;
+    height: calc(100vh - var(--nav-height));
+    max-height: calc(100vh - var(--nav-height));
+    overflow: hidden;
+    position: relative;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #111;
+    overflow: hidden;
+}
+
+.feed-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
 .video-overlay {
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 45%, transparent 65%, rgba(0,0,0,0.3) 100%);
     pointer-events: none;
 }
+
 .feed-content {
-    position: absolute; inset: 0; z-index: 2;
-    display: flex; flex-direction: column; justify-content: flex-end;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: 20px 16px 28px;
+    pointer-events: none;
+}
+
+.feed-content a,
+.feed-content .next-btn {
+    pointer-events: auto;
 }
 .feed-bottom { max-width: 68%; }
 .feed-title { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 6px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
@@ -175,12 +209,21 @@ body {
 .card-price { color: var(--green-dark); font-weight: 600; }
 .empty { grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 40px 0; }
 
-.media-preview {
+.media-preview-wrap {
     width: 100%;
-    max-height: 160px;
-    object-fit: cover;
+    height: 160px;
+    overflow: hidden;
     border-radius: 8px;
     margin-bottom: 8px;
-    display: block;
     background: #EDE6DA;
+}
+
+.media-preview-wrap img,
+.media-preview-wrap video {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border: 0;
 }

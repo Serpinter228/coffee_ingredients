@@ -14,8 +14,9 @@
 
         <form class="add-form" action="#" method="get">
             <div class="media-box">
-                <img src="{{.ingredient.ImageURL}}" alt="фото" class="media-preview"
-                     onerror="this.style.display='none'">
+                <div class="media-preview-wrap">
+                    <img src="{{.ingredient.ImageURL}}" alt="фото" class="media-preview">
+                </div>
                 <div class="media-placeholder">
                     <span class="plus">+</span>
                     <span>Добавить фото</span>
@@ -24,10 +25,11 @@
             </div>
 
             <div class="media-box">
-                <video class="media-preview" muted loop playsinline autoplay
-                       poster="{{.ingredient.ImageURL}}">
-                    <source src="{{.ingredient.VideoURL}}" type="video/mp4">
-                </video>
+                <div class="media-preview-wrap">
+                    <video class="media-preview" muted loop playsinline autoplay poster="{{.ingredient.ImageURL}}">
+                        <source src="{{.ingredient.VideoURL}}" type="video/mp4">
+                    </video>
+                </div>
                 <div class="media-placeholder">
                     <span class="plus">+</span>
                     <span>Добавить видео</span>
