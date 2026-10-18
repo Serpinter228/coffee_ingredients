@@ -14,6 +14,8 @@
 
         <form class="add-form" action="#" method="get">
             <div class="media-box">
+                <img src="{{.ingredient.ImageURL}}" alt="фото" class="media-preview"
+                     onerror="this.style.display='none'">
                 <div class="media-placeholder">
                     <span class="plus">+</span>
                     <span>Добавить фото</span>
@@ -22,6 +24,10 @@
             </div>
 
             <div class="media-box">
+                <video class="media-preview" muted loop playsinline autoplay
+                       poster="{{.ingredient.ImageURL}}">
+                    <source src="{{.ingredient.VideoURL}}" type="video/mp4">
+                </video>
                 <div class="media-placeholder">
                     <span class="plus">+</span>
                     <span>Добавить видео</span>
@@ -49,10 +55,6 @@
                 <input type="text" name="unit" value="{{.ingredient.Unit}}" class="input">
             </div>
 
-            <div class="form-actions">
-                <button type="button" class="btn btn-primary" disabled>Далее (ЛР2)</button>
-                <p class="hint">В ЛР1 сохранение отключено</p>
-            </div>
         </form>
     </div>
 
